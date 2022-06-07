@@ -1,6 +1,12 @@
+import { getCategories } from "../api/category";
+
 const Header = {
-    render: () => (
-        `
+    render: async () => {
+        const response = await getCategories();
+        const {data} = response;
+
+        return (
+            `
         <header>
         <nav class="bg-light position-relative">
             <div class="header d-flex">
@@ -22,13 +28,18 @@ const Header = {
             <i class="bi bi-border-width"></i> Danh mục sản phẩm
         </button>
         <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-            <li><a class="dropdown-item" href="#">Giày Adidas</a></li>
-            <li><a class="dropdown-item" href="#">Giày Nike</a></li>
-            <li><a class="dropdown-item" href="#">Giày Converse</a></li>
+        ${
+            data.map((category) => (
+                `
+                <li><a class="dropdown-item" href="#">${category.name}</a></li>
+                `
+            )).join('')
+        }
         </ul>
     </div>
         `
-    )
+        )
+    }
 }
 
 export default Header;

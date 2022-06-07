@@ -29,7 +29,7 @@ const Home = {
           </div>
 
           <div class="product">
-            <h2 class="text-center mt-5 mb-3">GIÀY MỚI</h2>
+            <h2 class="text-center mt-5 mb-3">SÁCH MỚI</h2>
             <div class="row">
               <div class="col">
                 <img class="w-100" src="images/product1.jpg" width="200px" height="370px" alt="">
@@ -62,81 +62,6 @@ const Home = {
                 <span class="text-decoration-line-through ms-4 text-secondary">2.500.000₫</span>
               </div>
             </div>
-
-            <img class="w-100 mt-5" src="images/banner-p1.jpg" alt="">
-
-            <h2 class="text-center mt-5 mb-3">GIÀY BÁN CHẠY</h2>
-
-            <div class="row">
-              <div class="col">
-                <img class="w-100" src="images/product1.jpg" width="200px" height="370px" alt="">
-                <p>Chú thuật hồi chiến - Tập 3</p>
-                <span class="me-5 text-danger">2.490.000₫</span>
-                <span class="text-decoration-line-through ms-4 text-secondary">2.500.000₫</span>
-              </div>
-              <div class="col">
-                <img class="w-100" src="images/product1.jpg" width="200px" height="370px" alt="">
-                <p>Chú thuật hồi chiến - Tập 3</p>
-                <span class="me-5 text-danger">2.490.000₫</span>
-                <span class="text-decoration-line-through ms-4 text-secondary">2.500.000₫</span>
-              </div>
-              <div class="col">
-                <img class="w-100" src="images/product1.jpg" width="200px" height="370px" alt="">
-                <p>Chú thuật hồi chiến - Tập 3</p>
-                <span class="me-5 text-danger">2.490.000₫</span>
-                <span class="text-decoration-line-through ms-4 text-secondary">2.500.000₫</span>
-              </div>
-              <div class="col">
-                <img class="w-100" src="images/product1.jpg" width="200px" height="370px" alt="">
-                <p>Chú thuật hồi chiến - Tập 3</p>
-                <span class="me-5 text-danger">2.490.000₫</span>
-                <span class="text-decoration-line-through ms-4 text-secondary">2.500.000₫</span>
-              </div>
-              <div class="col">
-                <img class="w-100" src="images/product1.jpg" width="200px" height="370px" alt="">
-                <p>Chú thuật hồi chiến - Tập 3</p>
-                <span class="me-5 text-danger">2.490.000₫</span>
-                <span class="text-decoration-line-through ms-4 text-secondary">2.500.000₫</span>
-              </div>
-            </div>
-
-            <img class="w-100 mt-5" src="images/banner-p2.jpg" alt="">
-
-            <h2 class="text-center mt-5 mb-3">TỐT NHẤT CỦA HÃNG</h2>
-
-            <div class="row">
-              <div class="col">
-                <img class="w-100" src="images/product1.jpg" width="200px" height="370px" alt="">
-                <p>Chú thuật hồi chiến - Tập 3</p>
-                <span class="me-5 text-danger">2.490.000₫</span>
-                <span class="text-decoration-line-through ms-4 text-secondary">2.500.000₫</span>
-              </div>
-              <div class="col">
-                <img class="w-100" src="images/product1.jpg" width="200px" height="370px" alt="">
-                <p>Chú thuật hồi chiến - Tập 3</p>
-                <span class="me-5 text-danger">2.490.000₫</span>
-                <span class="text-decoration-line-through ms-4 text-secondary">2.500.000₫</span>
-              </div>
-              <div class="col">
-                <img class="w-100" src="images/product1.jpg" width="200px" height="370px" alt="">
-                <p>Chú thuật hồi chiến - Tập 3</p>
-                <span class="me-5 text-danger">2.490.000₫</span>
-                <span class="text-decoration-line-through ms-4 text-secondary">2.500.000₫</span>
-              </div>
-              <div class="col">
-                <img class="w-100" src="images/product1.jpg" width="200px" height="370px" alt="">
-                <p>Chú thuật hồi chiến - Tập 3</p>
-                <span class="me-5 text-danger">2.490.000₫</span>
-                <span class="text-decoration-line-through ms-4 text-secondary">2.500.000₫</span>
-              </div>
-              <div class="col">
-                <img class="w-100" src="images/product1.jpg" width="200px" height="370px" alt="">
-                <p>Chú thuật hồi chiến - Tập 3</p>
-                <span class="me-5 text-danger">2.490.000₫</span>
-                <span class="text-decoration-line-through ms-4 text-secondary">2.500.000₫</span>
-              </div>
-            </div>
-          </div>
     `
 }
 

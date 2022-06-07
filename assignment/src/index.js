@@ -8,7 +8,7 @@ import router from './helpers/router';
 import 'bootstrap/dist/js/bootstrap.js';
 
 const render = async (content, id) => {
-    document.querySelector('#header').innerHTML = Header.render();
+    document.querySelector('#header').innerHTML = await Header.render(id);
     document.querySelector('#content').innerHTML = await content.render(id);
     document.querySelector('#footer').innerHTML = Footer.render();
 
