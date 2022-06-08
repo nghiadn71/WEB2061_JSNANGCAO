@@ -28,6 +28,7 @@ const Header = {
             <i class="bi bi-border-width"></i> Danh mục sản phẩm
         </button>
         <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+        <li><a class="dropdown-item" href="/">Home</a></li>
         ${
             data.map((category) => (
                 `
