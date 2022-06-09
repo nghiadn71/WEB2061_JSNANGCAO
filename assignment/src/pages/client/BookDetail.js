@@ -61,7 +61,7 @@ const BookDetail = {
           </div>
         </div>
         <div>
-          <img class="w-100 mt-5 mb-5" src="images/banner-p1.jpg" alt="">
+          <img class="w-100 mt-5 mb-5" src="../../images/banner-p1.jpg" alt="">
         </div>
         <div class="comment border">
           <h2 class="bg-danger p-2 fs-5 text-white">BÌNH LUẬN</h2>

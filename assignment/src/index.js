@@ -9,19 +9,19 @@ import router from './helpers/router';
 
 import 'bootstrap/dist/js/bootstrap.js';
 
-const render = async (content, id) => {
-    document.querySelector('#header').innerHTML = await Header.render(id);
+const render = async (header,content,footer, id) => {
+    document.querySelector('#header').innerHTML = await header.render(id);
     document.querySelector('#content').innerHTML = await content.render(id);
-    document.querySelector('#footer').innerHTML = Footer.render();
+    document.querySelector('#footer').innerHTML = footer.render();
 
     if (content.afterRender) {
         content.afterRender(id);
     }
 }
 router.on({
-    '/': () => render(Home),
-    'book/detail/:id': (data) => render(BookDetail, data.data.id),
-    '/cart-detail': () => render(CartDetail),
+    '/': () => render(Header, Home, Footer),
+    '/book/:id': (data) => render(Header, BookDetail, Footer, data.data.id),
+    '/cart-detail': () => render(Header, CartDetail, Footer),
 });
 router.resolve();
     

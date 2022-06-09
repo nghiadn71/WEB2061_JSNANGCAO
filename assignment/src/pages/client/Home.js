@@ -40,7 +40,7 @@ const Home = {
             ${
               data.map((book) => (
                 `
-                <a class="text-decoration-none text-body" href="/book/detail/${book.id}">
+                <a class="text-decoration-none text-body" href="/book/${book.id}">
                 <div class="col">
                   <img class="w-100" src="${book.main_image}" width="200px" height="370px" alt="">
                   <p>${book.name}</p>
