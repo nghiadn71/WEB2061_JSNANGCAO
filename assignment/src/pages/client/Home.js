@@ -1,4 +1,4 @@
-import { getBooks } from "../api/book";
+import { getBooks } from "../../api/book";
 
 const Home = {
     render: async () => {
@@ -42,7 +42,7 @@ const Home = {
                 `
                 <a class="text-decoration-none text-body" href="/book/detail/${book.id}">
                 <div class="col">
-                  <img class="w-100" src="images/product1.jpg" width="200px" height="370px" alt="">
+                  <img class="w-100" src="${book.main_image}" width="200px" height="370px" alt="">
                   <p>${book.name}</p>
                   <span class="me-5 text-danger">${book.sale_price}</span>
                   <span class="text-decoration-line-through ms-4 text-secondary">${book.price}</span>

@@ -1,4 +1,6 @@
-import { getBook } from "../api/book";
+import { getBook } from "../../api/book";
+import reRender from "../../helpers/reRender";
+import Cart from "./CartDetail";
 
 const BookDetail = {
     render: async (id) => {
@@ -11,12 +13,12 @@ const BookDetail = {
           <div class="col">
             <div class="row">
               <div class="col">
-                <img class="w-100 mb-3" src="../../images/product1.jpg" alt="">
-                <img class="w-100 mb-3" src="../../images/product1.jpg" alt="">
-                <img class="w-100 mb-3" src="../../images/product1.jpg" alt="">
+                <img class="w-100 mb-3" src="${data.main_image}" alt="">
+                <img class="w-100 mb-3" src="${data.main_image}" alt="">
+                <img class="w-100 mb-3" src="${data.main_image}" alt="">
               </div>
               <div class="col-9">
-                <img class="w-100" src="../../images/product1.jpg" alt="">
+                <img class="w-100" src="${data.main_image}" alt="">
               </div>
             </div>
             
@@ -41,10 +43,17 @@ const BookDetail = {
                 <div class="d-flex mb-4">
                   <button class="btn btn-outline-danger border ps-3 pe-3 pt-1 pb-1" id="reduce"><i class="bi bi-dash-lg"></i></button>
                   <!-- <input class="ps-3 pe-3 pt-1 pb-1" type="button" value=""> -->
-                  <input class="w-25 text-center ms-2 me-2" type="number" id="quantity" name="quantity" value="1">
+                  <input class="w-25 text-center ms-2 me-2" type="number" id="cartValue" value="1">
                   <button class="btn btn-outline-danger border ps-3 pe-3 pt-1 pb-1" id="increase"><i class="bi bi-plus-lg"></i></button>
                 </div>
-                <a href="cart"><button href="cart" class="btn btn-danger mb-2">THÊM VÀO GIỎ HÀNG</button></a>
+                <a href="/cart-detail"><button class="btn btn-danger mb-2"
+                data-id="${data.id}"
+                data-main_image="${data.main_image}"
+                data-name="${data.name}"
+                data-price="${data.price}"
+                id="btn-add-cart"
+                >THÊM VÀO GIỎ HÀNG
+                </button></a>
                 <br>
                 <button class="btn btn-danger">MUA NGAY</button>
               </div>
@@ -123,7 +132,7 @@ const BookDetail = {
     afterRender: () => {
         const btnReduce = document.querySelector('#reduce');
         btnReduce.addEventListener('click', () => {
-            let result = document.querySelector('#quantity');
+            let result = document.querySelector('#cartValue');
             let qty = result.value;
             if(!isNaN(qty)){
               result.value--;
@@ -133,13 +142,42 @@ const BookDetail = {
 
         const btnIncrease = document.querySelector('#increase');
         btnIncrease.addEventListener('click', () => {
-            let result = document.querySelector('#quantity');
+            let result = document.querySelector('#cartValue');
             let qty = result.value;
             if(!isNaN(qty)) {
               result.value++;
               return false;
             }
         })
+
+        const btnAddCart = document.querySelector('#btn-add-cart');
+        btnAddCart.addEventListener('click', () => {
+          const item = {
+            id: btnAddCart.dataset.id,
+            name: btnAddCart.dataset.name,
+            main_image: btnAddCart.dataset.main_image,
+            price: btnAddCart.dataset.price,
+            value: +document.querySelector('#cartValue').value || 1
+          };
+  
+          const cartItemsString = localStorage.getItem('cart');
+          const cartItems = JSON.parse(cartItemsString || '[]');
+  
+          if(!cartItems.length) {
+            cartItems.push(item);
+          } else {
+            const existItem = cartItems.find((cartItem) => cartItem.id === item.id);
+  
+            if (existItem) {
+              existItem.value += item.value;
+            } else {
+              cartItems.push(item);
+            }
+          }
+          localStorage.setItem('cart', JSON.stringify(cartItems));
+
+          reRender('#cart', Cart)
+        });
     }
       
 }

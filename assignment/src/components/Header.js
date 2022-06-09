@@ -1,4 +1,5 @@
 import { getCategories } from "../api/category";
+import Cart from "./Cart";
 
 const Header = {
     render: async () => {
@@ -18,7 +19,8 @@ const Header = {
                 <div class="icon align-self-center position-absolute end-0 me-4">
                     <a class="login text-dark text-decoration-none me-3" href="#"><i class="bi bi-box-arrow-in-right"> Đăng nhập</i></a>
                     <a class="register text-dark text-decoration-none me-3" href="#"><i class="bi bi-person-plus-fill"> Đăng ký</i></a>
-                    <a class="cart text-dark text-decoration-none" href="#"><i class="bi bi-bag-check-fill"></i></a>
+                    <a class="cart text-dark text-decoration-none" href="#" id="cart">${Cart.render()}</a>
+                    
                 </div>
             </div>
         </nav>

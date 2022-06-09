@@ -2,9 +2,9 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import Header from "./components/Header";
 import Footer from './components/Footer';
-import Home from './pages/Home';
-import BookDetail from './pages/BookDetail';
-import Cart from './pages/Cart';
+import Home from './pages/client/Home.js';
+import BookDetail from './pages/client/BookDetail';
+import CartDetail from './pages/client/CartDetail';
 import router from './helpers/router';
 
 import 'bootstrap/dist/js/bootstrap.js';
@@ -21,7 +21,7 @@ const render = async (content, id) => {
 router.on({
     '/': () => render(Home),
     'book/detail/:id': (data) => render(BookDetail, data.data.id),
-    'book/detail/cart': () => render(Cart),
+    '/cart-detail': () => render(CartDetail),
 });
 router.resolve();
     
