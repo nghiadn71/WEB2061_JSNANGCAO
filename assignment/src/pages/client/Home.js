@@ -44,8 +44,8 @@ const Home = {
                 <div class="col">
                   <img class="w-100" src="${book.main_image}" width="200px" height="370px" alt="">
                   <p>${book.name}</p>
-                  <span class="me-5 text-danger">${book.sale_price}</span>
-                  <span class="text-decoration-line-through ms-4 text-secondary">${book.price}</span>
+                  <span class="me-5 text-danger">${book.sale_price.replace(/\B(?=(\d{3})+(?!\d))/g, ',')}₫</span>
+                  <span class="text-decoration-line-through ms-4 text-secondary">${book.price.replace(/\B(?=(\d{3})+(?!\d))/g, ',')}₫</span>
                 </div>
                 </a>
                 `

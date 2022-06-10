@@ -11,19 +11,21 @@ import ProductAdmin from './pages/admin/product/ProductAdmin';
 import AddFormCategory from './pages/admin/category/AddFormCategory';
 import AddFormProduct from './pages/admin/product/AddFormProduct';
 import EditFormCategory from './pages/admin/category/EditFormCategory';
+import EditFormProduct from './pages/admin/product/EditFormProduct';
+import BookCategory from './pages/client/BookCategory';
 import EmptyHeader from './components/emptyHeader';
 import EmptyFooter from './components/EmptyFooter';
 import router from './helpers/router';
 
 import 'bootstrap/dist/js/bootstrap.js';
 
-const render = async (header,content,footer, id) => {
-    document.querySelector('#header').innerHTML = await header.render(id);
-    document.querySelector('#content').innerHTML = await content.render(id);
+const render = async (header,content,footer, id, parentID) => {
+    document.querySelector('#header').innerHTML = await header.render(id, parentID);
+    document.querySelector('#content').innerHTML = await content.render(id, parentID);
     document.querySelector('#footer').innerHTML = footer.render();
 
     if (content.afterRender) {
-        content.afterRender(id);
+        content.afterRender(id, parentID);
     }
 }
 
@@ -37,6 +39,8 @@ router.on({
     '/add-form-category': () => render(EmptyHeader, AddFormCategory, EmptyFooter),
     '/edit-form-category/:id': (data) => render(EmptyHeader, EditFormCategory, EmptyFooter, data.data.id),
     '/add-form-product': () => render(EmptyHeader, AddFormProduct, EmptyFooter),
+    '/edit-form-product/:id': (data) => render(EmptyHeader, EditFormProduct, EmptyFooter, data.data.id),
+    '/book-category/:id': (data) => render(Header, BookCategory, Footer, data.data.id),
 });
 router.resolve();
     

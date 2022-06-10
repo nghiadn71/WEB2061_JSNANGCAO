@@ -26,8 +26,8 @@ const BookDetail = {
           <div class="col-7">
             <h3 class="mb-4">${data.name}</h3>
             <div class="d-flex border-top border-bottom pt-2 pb-2">
-              <span class="fs-4 me-4 text-danger">${data.sale_price}</span>
-              <span class="fs-4 text-decoration-line-through text-secondary">${data.price}</span>
+              <span class="fs-4 me-4 text-danger">${data.sale_price.replace(/\B(?=(\d{3})+(?!\d))/g, ',')}₫</span>
+              <span class="fs-4 text-decoration-line-through text-secondary">${data.price.replace(/\B(?=(\d{3})+(?!\d))/g, ',')}₫</span>
             </div>
             <div class="row mt-4">
               <div class="col me-5">
@@ -50,7 +50,7 @@ const BookDetail = {
                 data-id="${data.id}"
                 data-main_image="${data.main_image}"
                 data-name="${data.name}"
-                data-price="${data.price}"
+                data-sale_price="${data.sale_price}"
                 id="btn-add-cart"
                 >THÊM VÀO GIỎ HÀNG
                 </button></a>
@@ -156,7 +156,7 @@ const BookDetail = {
             id: btnAddCart.dataset.id,
             name: btnAddCart.dataset.name,
             main_image: btnAddCart.dataset.main_image,
-            price: btnAddCart.dataset.price,
+            sale_price: btnAddCart.dataset.sale_price,
             value: +document.querySelector('#cartValue').value || 1
           };
   

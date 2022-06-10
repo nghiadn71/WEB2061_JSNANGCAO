@@ -2,6 +2,7 @@ import HeaderAdmin from "../../../components/HeaderAdmin";
 import FooterAdmin from "../../../components/FooterAdmin";
 import { getBooks } from "../../../api/book";
 import reRender from "../../../helpers/reRender";
+import { deleteBook } from "../../../api/book";
 
 const ProductAdmin = {
     render: async () => {
@@ -40,12 +41,18 @@ const ProductAdmin = {
                           <td>
                               <img style="width: 80px; height: 80px;" src="${book.main_image}" alt="">
                           </td>
-                          <td>${book.price}</td>
-                          <td>${book.sale_price}</td>
+                          <td>${book.price}₫</td>
+                          <td>${book.sale_price}₫</td>
                           <td>${book.category_id}</td>
                           <td>
+                            <a href="/edit-form-product/${book.id}">
                               <button class="btn btn-primary text-white">Sửa</button>
-                              <button class="btn btn-danger text-white">Xóa</button>
+                            </a>
+                              <button class="btn btn-danger text-white"
+                              data-id="${book.id}" 
+                              id="deleteBtns"
+                              >Xóa
+                              </button>
                           </td>
                         </tr>
                           `
@@ -62,6 +69,17 @@ const ProductAdmin = {
             ${FooterAdmin.render()}
             `
         )
+    },
+
+    afterRender: () => {
+      const deteleBtns = document.querySelectorAll('#deleteBtns');
+      deteleBtns.forEach((btn) => {
+        btn.addEventListener('click', async () => {
+          const btnId = btn.dataset.id;
+          await deleteBook(btnId);
+          await reRender('#content', ProductAdmin);
+        })
+      })
     }
 }
 

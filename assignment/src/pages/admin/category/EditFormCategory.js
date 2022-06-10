@@ -10,10 +10,8 @@ const EditFormCategory = {
         let category = {
             name: ''
         }
-        if (id) {
-            const response = await getCategory(id);
-            category = response.data;
-        }
+        const response = await getCategory(id);
+        category = response.data;
         return (
             `
             ${HeaderAdmin.render()}
