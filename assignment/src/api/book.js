@@ -1,7 +1,6 @@
 import apiAxios from "./axios";
 
 const prefix = '/books';
-const prefixCategory = '/categories';
 
 export const getBooks = () => apiAxios.get(prefix);
 export const getBook = (id) => apiAxios.get(`${prefix}/${id}`);
