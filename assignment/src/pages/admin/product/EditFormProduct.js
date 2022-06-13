@@ -33,6 +33,11 @@ const EditFormProduct = {
                       <input type="text" class="form-control" placeholder="Tên sản phẩm" id="name" value="${book.name}">
                     </div>
                     <div class="form-group">
+                    <div class="row">
+                      <div class="col-6 offset-3">
+                          <img src="${book.main_image}" class="img-thumbnail">
+                      </div>
+                  </div>
                       <label for="exampleInputName1">Hình ảnh</label>
                       <input type="text" class="form-control" placeholder="Hình ảnh" id="main_image" value="${book.main_image}">
                     </div>
